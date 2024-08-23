@@ -1,2 +1,4 @@
 def read_text_file(path):
-  pass
+  with open(path, 'r') as file:
+    content = file.read()
+    return content
