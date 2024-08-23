@@ -1,4 +1,8 @@
 def read_text_file(path):
-  with open(path, 'r') as file:
-    content = file.read()
-    return content
+
+  try:
+    with open(path, 'r') as file:
+      content = file.read()
+      return content
+  except FileNotFoundError:
+    return None
