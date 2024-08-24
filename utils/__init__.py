@@ -1,3 +1,4 @@
+from textblob import TextBlob 
 
 def read_text_file(path):
   try:
@@ -6,3 +7,7 @@ def read_text_file(path):
       return content
   except FileNotFoundError:
     return None
+  
+def extract_keywords(description):
+  blob = TextBlob(description)
+  return blob.noun_phrases
