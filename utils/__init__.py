@@ -1,5 +1,9 @@
 from textblob import TextBlob
 from PyPDF2 import PdfReader
+import os
+
+def run_command(command):
+  return os.system(command)
 
 def read_text_file(path):
   try:
