@@ -14,11 +14,20 @@ def read_text_file(path):
     print('Error: File not found!')
     return None
   
-def read_pdf_file(path, page):
+def read_pdf_file(path):
   try:
     reader = PdfReader(path)
-    page = reader.pages[page]
-    return page.extract_text()
+    output = ''
+
+    for i in range(len(reader.pages)):
+      page = reader.pages[i]
+
+      if i == 0:
+        output += page.extract_text()
+      else:
+        output += f' {page.extract_text()}'
+
+    return output
   except FileNotFoundError:
     print('Error: File not found!')
     return None
