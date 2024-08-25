@@ -14,6 +14,10 @@ def read_text_file(path):
     print('Error: File not found!')
     return None
   
+def create_text_file(path, name, text):
+  run_command(f'touch {path}/{name}.txt')
+  run_command(f'echo {text} > {path}/{name}.txt')
+  
 def read_pdf_file(path):
   try:
     reader = PdfReader(path)
