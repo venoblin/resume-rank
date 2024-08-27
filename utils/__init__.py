@@ -36,6 +36,6 @@ def read_pdf_file(path):
     print('Error: File not found!')
     return None
     
-def extract_keywords(description):
-  blob = TextBlob(description)
+def extract_keywords(text):
+  blob = TextBlob(text)
   return blob.noun_phrases
