@@ -39,3 +39,6 @@ def read_pdf_file(path):
 def extract_keywords(text):
   blob = TextBlob(text)
   return blob.noun_phrases
+
+def compare_keywords(job_keywords, resume_keywords):
+  pass
