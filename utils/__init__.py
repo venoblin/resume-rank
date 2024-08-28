@@ -41,4 +41,7 @@ def extract_keywords(text):
   return blob.noun_phrases
 
 def compare_keywords(job_keywords, resume_keywords):
-  pass
+  intersection = set(job_keywords).intersection(set(resume_keywords))
+  union = set(job_keywords).union(set(resume_keywords))
+  score = len(intersection) / len(union)
+  return score
