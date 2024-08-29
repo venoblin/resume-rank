@@ -2,7 +2,7 @@ from utils import read_text_file, extract_keywords, read_pdf_file, compare_keywo
 
 def main():
   desc = read_file('debug/desc.txt')
-  # resume = read_file('debug/resume1.pdf')
+  resume = read_file('debug/resume1.pdf')
 
   print(desc)
 
