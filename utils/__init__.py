@@ -6,7 +6,29 @@ def run_command(command):
   return os.system(command)
 
 def read_file(path):
-  pass
+  file_extension = os.path.splitext(path)[1].lower()
+
+  try:
+    if file_extension == 'txt':
+      with open(path, 'r') as file:
+        content = file.read()
+        return content
+    elif file_extension == 'pdf':
+      reader = PdfReader(path)
+      output = ''
+
+      for i in range(len(reader.pages)):
+        page = reader.pages[i]
+
+        if i == 0:
+          output += page.extract_text()
+        else:
+          output += f' {page.extract_text()}'
+
+      return output
+  except FileNotFoundError:
+    print('Error: File not found!')
+    return None
 
 def read_text_file(path):
   try:
