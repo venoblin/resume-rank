@@ -5,6 +5,9 @@ import os
 def run_command(command):
   return os.system(command)
 
+def read_file(path):
+  pass
+
 def read_text_file(path):
   try:
     with open(path, 'r') as file:

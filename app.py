@@ -1,4 +1,5 @@
 from utils import read_text_file, extract_keywords, read_pdf_file, compare_keywords
+import os
 
 def main():
   desc = read_text_file('debug/desc.txt')
