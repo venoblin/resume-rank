@@ -9,11 +9,11 @@ def read_file(path):
   file_extension = os.path.splitext(path)[1].lower()
 
   try:
-    if file_extension == 'txt':
+    if file_extension == '.txt':
       with open(path, 'r') as file:
         content = file.read()
         return content
-    elif file_extension == 'pdf':
+    elif file_extension == '.pdf':
       reader = PdfReader(path)
       output = ''
 
