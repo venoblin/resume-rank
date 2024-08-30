@@ -1,4 +1,4 @@
-from utils import read_text_file, extract_keywords, read_pdf_file, compare_keywords, read_file
+from utils import extract_keywords, compare_keywords, read_file
 
 def main():
   desc = read_file('debug/desc.txt')
