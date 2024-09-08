@@ -1,5 +1,6 @@
 import os
 from PyPDF2 import PdfReader
+from textblob import TextBlob
 
 class File:
   file_source: str
@@ -33,3 +34,7 @@ class File:
 
   def read_file(self):
     return self.content
+  
+  def extract_keywords(self):
+    blob = TextBlob(self.content)
+    return blob.noun_phrases
