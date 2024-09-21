@@ -10,16 +10,18 @@ class ResumeManager(App):
         self.title = "Resume Manager"
         window = Window()
 
-        job_description = BoxLayout(orientation='vertical')
-        job_description_text = TextInput(multiline=True)
-        job_description.add_widget(job_description_text)
+        job_desc = BoxLayout(orientation='vertical')
+        job_desc_text = TextInput(multiline=True)
+        find_resume_btn = Button(text='Find Best Resume')
+        job_desc.add_widget(job_desc_text)
+        job_desc.add_widget(find_resume_btn)
 
         resumes = BoxLayout(orientation='vertical')
         resume_upload_btn = Button(text='Upload Resume')
         resumes.add_widget(HeaderLabel(text='Resumes'))
         resumes.add_widget(resume_upload_btn)
         
-        window.add_widget(job_description)
+        window.add_widget(job_desc)
         window.add_widget(resumes)
 
         return window
