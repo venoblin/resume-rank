@@ -7,7 +7,7 @@ class ResumeManager(App):
     def build(self):
         self.title = "Resume Manager"
         window = Window()
-        resumes = Resumes()
+        resumes = Resumes(['resume1', 'resume2', 'resume3'])
         job_desc = JobDescription()
         
         window.add_widget(job_desc)
