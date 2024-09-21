@@ -1,6 +1,6 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
-from kivy.uix.button import Button
+from gui.widgets.button import Button
 
 class JobDescription(BoxLayout):
   def __init__(self):
