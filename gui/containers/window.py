@@ -6,4 +6,3 @@ class Window(BoxLayout):
     def __init__(self):
         super().__init__()
         self.orientation = 'horizontal'
-        

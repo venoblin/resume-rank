@@ -8,6 +8,7 @@ class JobDescription(BoxLayout):
     self.orientation = 'vertical'
 
     job_desc_text = TextInput(multiline=True)
+    job_desc_text.padding = 20
     find_resume_btn = Button(text='Find Best Resume')
 
     self.add_widget(job_desc_text)
