@@ -1,5 +1,5 @@
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.label import Label
+from gui.widgets.label import Label
 from gui.widgets.button import Button
 from gui.widgets.header_label import HeaderLabel
 
