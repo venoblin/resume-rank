@@ -1,10 +1,8 @@
-# from gui.resume_manager import ResumeManager
-from core.files import Files
+from gui.resume_manager import ResumeManager
 
 def main():
-  # app = ResumeManager()
-  # app.run()
-  Files('files/')
+  app = ResumeManager()
+  app.run()
 
 if __name__ == '__main__':
   main()

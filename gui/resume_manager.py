@@ -3,6 +3,7 @@ from kivy.graphics import Color, Rectangle
 from gui.containers.window import Window
 from gui.containers.resumes import Resumes
 from gui.containers.job_description import JobDescription
+from core.files import Files
 
 class ResumeManager(App):
     root = None
@@ -12,8 +13,9 @@ class ResumeManager(App):
 
         self.root = Window()
         self.root.bind(size=self._update_rect, pos=self._update_rect)
-
-        resumes = Resumes(['resume1', 'resume2', 'resume3'])
+        
+        resume_files = self.get_resumes()
+        resumes = Resumes(resume_files)
         resumes.size_hint = (0.3, 1)
 
         job_desc = JobDescription()
@@ -31,3 +33,6 @@ class ResumeManager(App):
     def _update_rect(self, instance, value):
         self.rect.pos = instance.pos
         self.rect.size = instance.size
+
+    def get_resumes(self):
+        return Files('files/resumes').get_files()

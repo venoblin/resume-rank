@@ -18,7 +18,7 @@ class Resumes(BoxLayout):
 
     if len(resumes):
       for r in resumes:
-        resume_label = Label(text=r)
+        resume_label = Label(text=r['file_name'])
         resumes_container.add_widget(resume_label)
     else:
       resume_label = Label(text='No resumes uploaded!')

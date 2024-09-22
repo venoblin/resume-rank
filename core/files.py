@@ -40,11 +40,31 @@ class Files:
       return None
 
   def read_file(self):
+    if self.file_extension == 'dir':
+      return 'Error: Source is not a file!'
+    
     return self.content
   
   def extract_keywords(self):
+    if self.file_extension == 'dir':
+      return 'Error: Source is not a file!'
+    
     blob = TextBlob(self.content)
     return blob.noun_phrases
   
-  # @classmethod
-  # def get
+  def get_files(self):
+    if self.file_extension != 'dir':
+      return 'Error: Source is not a directory!'
+    
+    files = []
+
+    for file_name in os.listdir(self.src):
+        file_path = os.path.join(self.src, file_name)
+
+        if os.path.isfile(file_path):
+            files.append({
+              'file_path': file_path,
+              'file_name': file_name
+            })
+
+    return files
