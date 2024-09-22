@@ -7,3 +7,5 @@ class HeaderLabel(Label):
 
     self.bold = True
     self.font_size = Sizes.FONT_SIZE_LG
+    self.size_hint = (1, None)
+    self.size = (0, 150)
