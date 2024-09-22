@@ -14,7 +14,7 @@ class ResumeManager(App):
         self.root = Window()
         self.root.bind(size=self._update_rect, pos=self._update_rect)
         
-        resume_files = self.get_resumes()
+        resume_files = self._get_resumes()
         resumes = Resumes(resume_files)
         resumes.size_hint = (0.3, 1)
 
@@ -34,5 +34,5 @@ class ResumeManager(App):
         self.rect.pos = instance.pos
         self.rect.size = instance.size
 
-    def get_resumes(self):
+    def _get_resumes(self):
         return Files('files/resumes').get_files()
