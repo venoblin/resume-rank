@@ -1,4 +1,5 @@
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.gridlayout import GridLayout
 from gui.widgets.label import Label
 from gui.widgets.button import Button
 from gui.widgets.header_label import HeaderLabel
@@ -10,7 +11,7 @@ class Resumes(BoxLayout):
 
     header = HeaderLabel(text='Resumes')
 
-    resumes_container = BoxLayout(orientation='vertical')
+    resumes_container = GridLayout(cols=1)
 
     if len(resumes):
       for r in resumes:
