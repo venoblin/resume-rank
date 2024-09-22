@@ -5,9 +5,12 @@ from gui.widgets.button import Button
 from gui.widgets.header_label import HeaderLabel
 
 class Resumes(BoxLayout):
+  resumes = []
+  
   def __init__(self, resumes = []):
     super().__init__()
     self.orientation = 'vertical'
+    self.resumes = resumes
 
     header = HeaderLabel(text='Resumes')
 
