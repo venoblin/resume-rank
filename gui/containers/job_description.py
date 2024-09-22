@@ -1,6 +1,7 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.textinput import TextInput
 from gui.widgets.button import Button
+from gui.constants.sizes import Sizes
 
 class JobDescription(BoxLayout):
   def __init__(self):
@@ -8,6 +9,7 @@ class JobDescription(BoxLayout):
     self.orientation = 'vertical'
 
     job_desc_text = TextInput(multiline=True)
+    job_desc_text.font_size = Sizes.FONT_SIZE_M
     job_desc_text.padding = 20
     find_resume_btn = Button(text='Find Best Resume')
 

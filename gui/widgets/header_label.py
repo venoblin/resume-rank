@@ -1,8 +1,9 @@
 from kivy.uix.label import Label
+from gui.constants.sizes import Sizes
 
 class HeaderLabel(Label):
   def __init__(self, **kwargs):
     super().__init__(**kwargs)
 
-    self.bold = False
-    self.font_size = 25
+    self.bold = True
+    self.font_size = Sizes.FONT_SIZE_LG
