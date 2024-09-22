@@ -8,7 +8,9 @@ class ResumeManager(App):
         self.title = "Resume Manager"
         window = Window()
         resumes = Resumes(['resume1', 'resume2', 'resume3'])
+        resumes.size_hint = (0.3, 1)
         job_desc = JobDescription()
+        job_desc.size_hint = (0.7, 1)
         
         window.add_widget(job_desc)
         window.add_widget(resumes)

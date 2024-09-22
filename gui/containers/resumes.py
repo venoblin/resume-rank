@@ -21,6 +21,7 @@ class Resumes(BoxLayout):
       resumes_container.add_widget(resume_label)
 
     resume_upload_btn = Button(text='Upload Resume')
+    resume_upload_btn.size_hint_x = 1
     
     self.add_widget(header)
     self.add_widget(resumes_container)
