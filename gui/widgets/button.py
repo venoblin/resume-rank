@@ -7,4 +7,4 @@ class Button(KivyButton):
     self.font_size = Sizes.FONT_SIZE_M
     self.size_hint = (None, None)
     self.size = (400, 100)
-    self.background_color = (0, 1, 0, 1)
+    self.background_color = (2 / 255, 103 / 255, 193 / 255, 1)
