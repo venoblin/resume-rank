@@ -5,18 +5,24 @@ from textblob import TextBlob
 class Files:
   src = ''
   content = ''
+  file_extension = ''
   
   def __init__(self, src: str = '') -> None:
     self.src = src
-    file_extension = os.path.splitext(self.src)[1].lower()
-    print(file_extension)
+
+    if os.path.isdir(src):
+      self.file_extension = 'dir'
+    else:
+      self.file_extension = os.path.splitext(self.src)[1].lower()
 
     try:
-      if file_extension == '.txt':
+      if self.file_extension == 'dir':
+        print('dir')
+      elif self.file_extension == '.txt':
         with open(self.src, 'r') as file:
           output = file.read()
           self.content = output
-      elif file_extension == '.pdf':
+      elif self.file_extension == '.pdf':
         reader = PdfReader(self.src)
         output = ''
 
