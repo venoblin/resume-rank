@@ -1,7 +1,7 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.filechooser import FileChooserListView
-from gui.widgets.pop_up import PopUp
+from kivy.uix.popup import Popup
 from gui.widgets.label import Label
 from gui.widgets.button import Button
 from gui.widgets.header_label import HeaderLabel
@@ -28,7 +28,7 @@ class Resumes(BoxLayout):
       resumes_container.add_widget(resume_label)
 
     self.file_chooser = FileChooserListView()
-    popup = PopUp(
+    popup = Popup(
       title = 'Upload Resume',
       content = self.file_chooser
     )
