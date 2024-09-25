@@ -3,6 +3,7 @@ from kivy.uix.gridlayout import GridLayout
 from gui.widgets.label import Label
 from gui.widgets.header_label import HeaderLabel
 from gui.widgets.file_chooser import FileChooser
+from gui.widgets.button import Button
 
 class Resumes(BoxLayout):
   resumes = []
@@ -24,12 +25,14 @@ class Resumes(BoxLayout):
     else:
       resume_label = Label(text='No resumes uploaded!')
       resumes_container.add_widget(resume_label)
-    
-    file_chooser = FileChooser()
 
-    self.add_widget(file_chooser)
+    open_file_chooser_btn = Button(text='Upload Resume')
+    open_file_chooser_btn.bind(on_press=self._open_file_chooser)
+    
     self.add_widget(header)
     self.add_widget(resumes_container)
+    self.add_widget(open_file_chooser_btn)
 
-    def _upload_file(self):
-      pass
+  def _open_file_chooser(self, instance):
+    file_chooser = FileChooser()
+    file_chooser.open()
