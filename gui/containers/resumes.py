@@ -1,6 +1,6 @@
 from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
-from gui.widgets.label import Label
+from gui.widgets.link import Link
 from gui.widgets.header_label import HeaderLabel
 from gui.widgets.file_chooser import FileChooser
 from gui.widgets.button import Button
@@ -20,11 +20,11 @@ class Resumes(BoxLayout):
 
     if len(resumes):
       for r in resumes:
-        resume_label = Label(text=r['file_name'])
-        resumes_container.add_widget(resume_label)
+        resume_link = Link(text=r['file_name'])
+        resumes_container.add_widget(resume_link)
     else:
-      resume_label = Label(text='No resumes uploaded!')
-      resumes_container.add_widget(resume_label)
+      resume_link = Link(text='No resumes uploaded!')
+      resumes_container.add_widget(resume_link)
 
     open_file_chooser_btn = Button(text='Upload Resume')
     open_file_chooser_btn.bind(on_press=self._open_file_chooser)
