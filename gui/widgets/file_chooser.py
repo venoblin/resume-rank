@@ -16,3 +16,5 @@ class FileChooser(Popup):
 
     self.title = 'Upload Resume'
     self.content = wrapper
+    self.size_hint = (None, None)
+    self.size = (400, 400)
