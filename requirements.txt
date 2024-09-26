@@ -9,8 +9,12 @@ Kivy-Garden==0.1.5
 nltk==3.9.1
 Pygments==2.18.0
 PyPDF2==3.0.1
+PySide6==6.7.2
+PySide6_Addons==6.7.2
+PySide6_Essentials==6.7.2
 regex==2024.7.24
 requests==2.32.3
+shiboken6==6.7.2
 textblob==0.18.0.post0
 tqdm==4.66.5
 urllib3==2.2.3
