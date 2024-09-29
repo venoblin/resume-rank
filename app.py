@@ -1,8 +1,13 @@
-from gui.resume_manager import ResumeManager
+from PySide6.QtWidgets import QApplication, QWidget
+import sys
 
 def main():
-  app = ResumeManager()
-  app.run()
+  app = QApplication(sys.argv)
+
+  window = QWidget()
+  window.show()
+
+  app.exec()
 
 if __name__ == '__main__':
   main()
