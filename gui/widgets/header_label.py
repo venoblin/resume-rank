@@ -7,7 +7,7 @@ class HeaderLabel(QLabel):
     self.setText(label)
 
     font = self.font()
-    font.setPointSize(50)
+    font.setPointSize(30)
     font.setBold(True)
 
     self.setFont(font)
