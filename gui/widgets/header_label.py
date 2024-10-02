@@ -1,10 +1,10 @@
 from PySide6.QtWidgets import QLabel
 
 class HeaderLabel(QLabel):
-  def __init__(self, label = ''):
+  def __init__(self, text=''):
     super(HeaderLabel, self).__init__()
 
-    self.setText(label)
+    self.setText(text)
 
     font = self.font()
     font.setPointSize(30)
