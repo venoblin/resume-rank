@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QMainWindow, QVBoxLayout, QWidget
+from gui.widgets.container import Container
 from gui.widgets.containers.resumes import Resumes
 
 class MainWindow(QMainWindow):
@@ -7,11 +8,9 @@ class MainWindow(QMainWindow):
 
     self.setWindowTitle('Resume Manager')
 
-    layout = QVBoxLayout()
-    layout.addWidget(Resumes())
+    window = Container()
+    window.layout.addWidget(Resumes())
 
-    window = QWidget()
-    window.setLayout(layout)
     self.setCentralWidget(window)
     
   
