@@ -1,6 +1,7 @@
 from PySide6.QtWidgets import QLabel
 
 class Label(QLabel):
+  
   def __init__(self, text=''):
     super(Label, self).__init__()
 
