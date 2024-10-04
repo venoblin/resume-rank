@@ -4,7 +4,7 @@ from gui.widgets.button import Button
 
 class Resumes(Container):
   def __init__(self):
-    super(Resumes, self).__init__()
+    super().__init__()
 
     header = HeaderLabel(text='Resumes')
     upload_resume_btn = Button(text='Upload Resume')
