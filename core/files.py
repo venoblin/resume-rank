@@ -16,9 +16,7 @@ class Files:
       self.file_extension = os.path.splitext(self.src)[1].lower()
 
     try:
-      if self.file_extension == 'dir':
-        print('dir')
-      elif self.file_extension == '.txt':
+      if self.file_extension == '.txt':
         with open(self.src, 'r') as file:
           output = file.read()
           self.content = output
