@@ -7,33 +7,39 @@ from core.files import Files
 from core.utils import run_command
 
 class Resumes(Container):
+  resume_container = None
   resumes = []
   
   def __init__(self):
     super().__init__()
-    self.resumes = self._get_resumes()
-
     header = HeaderLabel(text='Resumes')
 
-    resume_container = Container()
-    if self.resumes:
-      for r in self.resumes:
-        resume_container.layout.addWidget(Label(r['file_name']))
-    else:
-      resume_container.layout.addWidget(Label('No resumes!'))
+    self.resume_container = Container()
+    self._populate_resumes()
 
     open_dialog_btn = Button(text='Upload Resume')
     open_dialog_btn.clicked.connect(self.open_dialog)
 
     self.layout.addWidget(header)
-    self.layout.addWidget(resume_container)
+    self.layout.addWidget(self.resume_container)
     self.layout.addWidget(open_dialog_btn)
 
   def open_dialog(self):
     file = QFileDialog.getOpenFileName(self, 'Upload Resume', '', 'Resume Files (*.pdf)')
 
-    if file:
+    if file[0]:
       run_command(f'cp {file[0]} ./files/resumes')
+      self.resume_container.clear_layout()
+      self._populate_resumes()
 
   def _get_resumes(self):
     return Files('files/resumes').get_files()
+  
+  def _populate_resumes(self):
+    self.resumes = self._get_resumes()
+    
+    if self.resumes:
+      for r in self.resumes:
+        self.resume_container.layout.addWidget(Label(r['file_name']))
+    else:
+      self.resume_container.layout.addWidget(Label('No resumes!'))

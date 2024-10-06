@@ -17,3 +17,11 @@ class Container(QWidget):
       self.layout = QHBoxLayout()
     elif type == 'grid':
       self.layout = QGridLayout()
+
+  def clear_layout(self):
+    while self.layout.count():
+        item = self.layout.takeAt(0)  
+        widget = item.widget()
+        
+        if widget is not None:
+            widget.deleteLater()
