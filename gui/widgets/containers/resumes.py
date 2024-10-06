@@ -2,6 +2,7 @@ from PySide6.QtWidgets import QFileDialog
 from gui.widgets.container import Container
 from gui.widgets.header_label import HeaderLabel
 from gui.widgets.button import Button
+from core.utils import run_command
 
 class Resumes(Container):
   def __init__(self):
@@ -15,7 +16,7 @@ class Resumes(Container):
     self.layout.addWidget(open_dialog_btn)
 
   def open_dialog(self):
-    file_name = QFileDialog.getOpenFileName(self, 'Select Resume', '', 'Resume Files (*.pdf)')
+    file = QFileDialog.getOpenFileName(self, 'Upload Resume', '', 'Resume Files (*.pdf)')
 
-    if file_name:
-      print(file_name)
+    if file:
+      run_command(f'cp {file[0]} ./files/resumes')

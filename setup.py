@@ -1,5 +1,5 @@
 import nltk
-from utils import run_command
+from core.utils import run_command
 
 def main():
   run_command('mkdir files')
