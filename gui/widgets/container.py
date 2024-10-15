@@ -6,7 +6,8 @@ class Container(QWidget):
   
   def __init__(self, type='vertical'):
     super().__init__()
-    self._assign_layout(type)
+    self.type = type
+    self._assign_layout(self.type)
 
     self.setLayout(self.layout)
 
