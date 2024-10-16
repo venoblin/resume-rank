@@ -29,11 +29,18 @@ class Resumes(Container):
 
     if file[0]:
       run_command(f'cp {file[0]} ./files/resumes')
-      self.resume_container.clear_layout()
-      self._populate_resumes()
+      self._refresh_resumes()
+
+  def _refresh_resumes(self):
+    self.resume_container.clear_layout()
+    self._populate_resumes()
 
   def _get_resumes(self):
     return Files('files/resumes').get_files()
+  
+  def _delete_resume(self, resume):
+    run_command(f'rm files/${resume['file_path']}')
+    self._refresh_resumes()
   
   def _populate_resumes(self):
     self.resumes = self._get_resumes()
@@ -43,6 +50,7 @@ class Resumes(Container):
         resume = Container(type='horizontal')
         label = Label(text=r['file_name'])
         delete_btn = Button(text='Delete')
+        delete_btn.clicked.connect(lambda: self._delete_resume(r))
 
         resume.layout.addWidget(label)
         resume.layout.addWidget(delete_btn)
@@ -50,3 +58,5 @@ class Resumes(Container):
         self.resume_container.layout.addWidget(resume)
     else:
       self.resume_container.layout.addWidget(Label('No resumes!'))
+
+
