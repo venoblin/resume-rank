@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QFileDialog
 from gui.widgets.container import Container
 from gui.widgets.header_label import HeaderLabel
-from gui.widgets.resume import Resume
 from gui.widgets.button import Button
+from gui.widgets.label import Label
 from core.files import Files
 from core.utils import run_command
 
@@ -40,6 +40,13 @@ class Resumes(Container):
     
     if self.resumes:
       for r in self.resumes:
-        self.resume_container.layout.addWidget(Resume(r))
+        resume = Container(type='horizontal')
+        label = Label(text=r['file_name'])
+        delete_btn = Button(text='Delete')
+
+        resume.layout.addWidget(label)
+        resume.layout.addWidget(delete_btn)
+        
+        self.resume_container.layout.addWidget(resume)
     else:
-      self.resume_container.layout.addWidget(Resume('No resumes!'))
+      self.resume_container.layout.addWidget(Label('No resumes!'))
