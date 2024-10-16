@@ -4,8 +4,7 @@ from gui.widgets.button import Button
 
 class Resume(Container):
   def __init__(self, resume):
-    super().__init__()
-    self.type = 'vertical'
+    super().__init__(type='horizontal')
     
     label = Label(text=resume['file_name'])
     delete_btn = Button(text='Delete')
