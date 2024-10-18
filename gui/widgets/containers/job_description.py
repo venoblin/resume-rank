@@ -11,7 +11,11 @@ class JobDescription(Container):
     textarea = QPlainTextEdit()
     textarea.setPlaceholderText('Past job description here...')
     find_btn = Button(text='Find Best Resume')
+    find_btn.clicked.connect(self._find_resume_handler)
 
     self.layout.addWidget(header)
     self.layout.addWidget(textarea)
     self.layout.addWidget(find_btn)
+
+  def _find_resume_handler(self):
+    print('resume')
