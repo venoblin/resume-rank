@@ -22,5 +22,4 @@ class JobDescription(Container):
 
   def _find_resume_handler(self):
     content = self.textarea.toPlainText()
-
     resumes = Files('files/resumes').get_files()
