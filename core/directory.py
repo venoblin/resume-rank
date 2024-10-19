@@ -1,7 +1,6 @@
 import os
-from core.file import File
 
-class Directory(File):
+class Directory:
   src: str
   
   def __init__(self, src: str):

@@ -3,7 +3,7 @@ from gui.widgets.container import Container
 from gui.widgets.header_label import HeaderLabel
 from gui.widgets.button import Button
 from gui.widgets.label import Label
-from core.file import File
+from core.directory import Directory
 from core.utils import run_command
 
 class Resumes(Container):
@@ -40,7 +40,7 @@ class Resumes(Container):
     self._refresh_resumes()
   
   def _populate_resumes(self):
-    self.resumes = File('files/resumes').get_files()
+    self.resumes = Directory('files/resumes').get_files()
     
     if self.resumes:
       for r in self.resumes:
