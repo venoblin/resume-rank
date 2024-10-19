@@ -22,4 +22,5 @@ class JobDescription(Container):
 
   def _find_resume_handler(self):
     popup = QDialog()
+    popup.show()
     content = self.textarea.toPlainText()
