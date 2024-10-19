@@ -41,7 +41,7 @@ class File:
     blob = TextBlob(self.content)
     return blob.noun_phrases
   
-  def compare_keywords(self, job_description):
+  def compare_keywords(self, job_description: str):
     job_keywords = TextBlob(job_description)
 
     intersection = set(job_keywords).intersection(set(self.extract_keywords()))

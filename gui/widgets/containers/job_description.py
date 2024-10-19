@@ -24,3 +24,15 @@ class JobDescription(Container):
   def _find_resume_handler(self):
     content = self.textarea.toPlainText()
     resumes = Directory('files/resumes').get_files()
+
+    current_score = 0
+    best_resume = {}
+    for r in resumes:
+      score = File(r['file_path']).compare_keywords(content)
+
+      if score >= current_score:
+        current_score = score
+        best_resume = r
+
+    print(best_resume, current_score)
+
