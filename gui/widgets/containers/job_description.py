@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QPlainTextEdit
 from gui.widgets.container import Container
 from gui.widgets.header_label import HeaderLabel
 from gui.widgets.button import Button
-from core.files import Files
+from core.file import File
 
 class JobDescription(Container):
   textarea: QPlainTextEdit
@@ -22,4 +22,4 @@ class JobDescription(Container):
 
   def _find_resume_handler(self):
     content = self.textarea.toPlainText()
-    resumes = Files('files/resumes').get_files()
+    resumes = File('files/resumes').get_files()
