@@ -40,3 +40,12 @@ class File:
   def extract_keywords(self):    
     blob = TextBlob(self.content)
     return blob.noun_phrases
+  
+  def compare_keywords(self, job_description):
+    job_keywords = TextBlob(job_description)
+
+    intersection = set(job_keywords).intersection(set(self.extract_keywords()))
+    union = set(job_keywords).union(set(self.extract_keywords()))
+    score = len(intersection) / len(union)
+    
+    return score

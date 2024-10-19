@@ -3,6 +3,7 @@ from gui.widgets.container import Container
 from gui.widgets.header_label import HeaderLabel
 from gui.widgets.button import Button
 from core.directory import Directory
+from core.file import File
 
 class JobDescription(Container):
   textarea: QPlainTextEdit
