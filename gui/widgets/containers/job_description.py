@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QPlainTextEdit
-from PySide6.QtWidgets import QDialog
 from gui.widgets.container import Container
 from gui.widgets.header_label import HeaderLabel
 from gui.widgets.button import Button
+from core.files import Files
 
 class JobDescription(Container):
   textarea: QPlainTextEdit
@@ -21,6 +21,6 @@ class JobDescription(Container):
     self.layout.addWidget(find_btn)
 
   def _find_resume_handler(self):
-    popup = QDialog()
-    popup.show()
     content = self.textarea.toPlainText()
+
+    resumes = Files('files/resumes').get_files()

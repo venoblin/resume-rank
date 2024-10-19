@@ -34,16 +34,13 @@ class Resumes(Container):
   def _refresh_resumes(self):
     self.resume_container.clear_layout()
     self._populate_resumes()
-
-  def _get_resumes(self):
-    return Files('files/resumes').get_files()
   
   def _delete_resume(self, resume):
     run_command(f'rm files/${resume['file_path']}')
     self._refresh_resumes()
   
   def _populate_resumes(self):
-    self.resumes = self._get_resumes()
+    self.resumes = Files('files/resumes').get_files()
     
     if self.resumes:
       for r in self.resumes:
