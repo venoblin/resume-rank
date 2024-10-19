@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QPlainTextEdit
+from PySide6.QtWidgets import QDialog
 from gui.widgets.container import Container
 from gui.widgets.header_label import HeaderLabel
 from gui.widgets.button import Button
@@ -20,6 +21,5 @@ class JobDescription(Container):
     self.layout.addWidget(find_btn)
 
   def _find_resume_handler(self):
+    popup = QDialog()
     content = self.textarea.toPlainText()
-
-    print(content)
