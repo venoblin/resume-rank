@@ -11,6 +11,5 @@ class MainWindow(QMainWindow):
     self.stack = QStackedLayout()
 
     self.stack.addWidget(Finder())
-    self.stack.setCurrentIndex(0)
     
     self.setLayout(self.stack)
