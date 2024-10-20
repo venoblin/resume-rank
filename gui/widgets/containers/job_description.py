@@ -31,9 +31,8 @@ class JobDescription(Container):
       score = File(r['file_path']).compare_keywords(content)
 
       if score >= current_score:
-        current_score = score
         best_resume = r
-
-    print(best_resume, current_score)
-
+        current_score = score
+    
+    print(best_resume)
 

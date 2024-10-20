@@ -43,9 +43,10 @@ class File:
   
   def compare_keywords(self, job_description: str):
     job_keywords = TextBlob(job_description).noun_phrases
+    resume_keywords = self.extract_keywords()
 
-    intersection = set(job_keywords).intersection(set(self.extract_keywords()))
-    union = set(job_keywords).union(set(self.extract_keywords()))
+    intersection = set(job_keywords).intersection(set(resume_keywords))
+    union = set(job_keywords).union(set(resume_keywords))
     score = len(intersection) / len(union)
     
     return score
