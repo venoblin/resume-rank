@@ -12,6 +12,6 @@ class MainWindow(QWidget):
 
     self.stack.addWidget(Finder(stack=self.stack))
     self.stack.addWidget(ResumeChecker(stack=self.stack))
-    self.stack.setCurrentIndex(1)
+    self.stack.setCurrentIndex(0)
     
     self.setLayout(self.stack)
