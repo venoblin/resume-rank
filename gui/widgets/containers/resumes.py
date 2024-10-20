@@ -7,22 +7,24 @@ from core.directory import Directory
 from core.utils import run_command
 
 class Resumes(Container):
-  resume_container = None
+  is_checking: bool
+  resume_container: Container
   resumes = []
   
-  def __init__(self):
+  def __init__(self, is_checking = False):
     super().__init__()
     header = HeaderLabel(text='Resumes')
+    self.is_checking = is_checking
 
     self.resume_container = Container()
     self._populate_resumes()
 
-    open_dialog_btn = Button(text='Upload Resume')
-    open_dialog_btn.clicked.connect(self.open_dialog)
-
     self.layout.addWidget(header)
     self.layout.addWidget(self.resume_container)
-    self.layout.addWidget(open_dialog_btn)
+    if not self.is_checking:
+      open_dialog_btn = Button(text='Upload Resume')
+      open_dialog_btn.clicked.connect(self.open_dialog)
+      self.layout.addWidget(open_dialog_btn)
 
   def open_dialog(self):
     file = QFileDialog.getOpenFileName(self, 'Upload Resume', '', 'Resume Files (*.pdf)')
@@ -46,11 +48,12 @@ class Resumes(Container):
       for r in self.resumes:
         resume = Container(type='horizontal')
         label = Label(text=r['file_name'])
-        delete_btn = Button(text='Delete')
-        delete_btn.clicked.connect(lambda: self._delete_resume(r))
 
         resume.layout.addWidget(label)
-        resume.layout.addWidget(delete_btn)
+        if not self.is_checking:
+          delete_btn = Button(text='Delete')
+          delete_btn.clicked.connect(lambda: self._delete_resume(r))
+          resume.layout.addWidget(delete_btn)
         
         self.resume_container.layout.addWidget(resume)
     else:
