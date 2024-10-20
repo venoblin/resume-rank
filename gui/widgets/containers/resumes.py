@@ -9,15 +9,19 @@ from core.utils import run_command
 class Resumes(Container):
   is_checking: bool
   resume_container: Container
-  resumes = []
+  resumes: list
   
-  def __init__(self, is_checking = False):
+  def __init__(self, resumes = [], is_checking = False):
     super().__init__()
     header = HeaderLabel(text='Resumes')
     self.is_checking = is_checking
+    if len(resumes) == 0:
+      self.resumes = Directory('files/resumes').get_files()
+    else:
+      self.resumes = resumes
 
     self.resume_container = Container()
-    self._populate_resumes()
+    self._create_resume_widgets()
 
     self.layout.addWidget(header)
     self.layout.addWidget(self.resume_container)
@@ -35,15 +39,13 @@ class Resumes(Container):
 
   def _refresh_resumes(self):
     self.resume_container.clear_layout()
-    self._populate_resumes()
+    self._create_resume_widgets()
   
   def _delete_resume(self, resume):
     run_command(f'rm files/${resume['file_path']}')
     self._refresh_resumes()
   
-  def _populate_resumes(self):
-    self.resumes = Directory('files/resumes').get_files()
-    
+  def _create_resume_widgets(self):
     if self.resumes:
       for r in self.resumes:
         resume = Container(type='horizontal')
