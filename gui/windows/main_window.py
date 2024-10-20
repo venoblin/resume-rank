@@ -1,18 +1,16 @@
-from PySide6.QtWidgets import QMainWindow
+from PySide6.QtWidgets import QMainWindow, QStackedLayout
 from gui.widgets.container import Container
-from gui.widgets.containers.resumes import Resumes
-from gui.widgets.containers.job_description import JobDescription
+from gui.widgets.containers.finder import Finder
 
 class MainWindow(QMainWindow):
+  stack: QStackedLayout
+  
   def __init__(self):
     super(MainWindow, self).__init__()
-
     self.setWindowTitle('Resume Manager')
+    self.stack = QStackedLayout()
 
-    window = Container(type='horizontal')
-    window.layout.addWidget(JobDescription())
-    window.layout.addWidget(Resumes())
-
-    self.setCentralWidget(window)
+    self.stack.addWidget(Finder())
+    self.stack.setCurrentIndex(0)
     
-  
+    self.setLayout(self.stack)
