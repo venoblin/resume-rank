@@ -1,8 +1,7 @@
-from PySide6.QtWidgets import QMainWindow, QStackedLayout
-from gui.widgets.container import Container
+from PySide6.QtWidgets import QWidget, QStackedLayout
 from gui.widgets.containers.finder import Finder
 
-class MainWindow(QMainWindow):
+class MainWindow(QWidget):
   stack: QStackedLayout
   
   def __init__(self):
