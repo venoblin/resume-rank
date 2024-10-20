@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QWidget, QStackedLayout
-from gui.widgets.containers.finder import Finder
+from gui.widgets.pages.finder import Finder
 
 class MainWindow(QWidget):
   stack: QStackedLayout
@@ -9,6 +9,7 @@ class MainWindow(QWidget):
     self.setWindowTitle('Resume Manager')
     self.stack = QStackedLayout()
 
-    self.stack.addWidget(Finder())
+    self.stack.addWidget(Finder(stack=self.stack))
+    self.stack.setCurrentIndex(0)
     
     self.setLayout(self.stack)
