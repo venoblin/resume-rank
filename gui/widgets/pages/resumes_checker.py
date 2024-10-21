@@ -10,7 +10,7 @@ class ResumeChecker(Container):
     super().__init__(type='vertical')
     self.stack = stack
 
-    resumes = Resumes(resumes=[], is_checking=True)
+    resumes = Resumes(is_checking=True)
 
     button = Button(text='Back')
     button.clicked.connect(self._back_handler)
