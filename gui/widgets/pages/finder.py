@@ -10,6 +10,9 @@ class Finder(Container):
     super().__init__(type='horizontal')
     self.stack = stack
 
-    self.layout.addWidget(JobDescription(stack=self.stack))
-    self.layout.addWidget(Resumes())
+    job_description = JobDescription(stack=self.stack)
+    resumes = Resumes()
+
+    self.layout.addWidget(job_description)
+    self.layout.addWidget(resumes)
 

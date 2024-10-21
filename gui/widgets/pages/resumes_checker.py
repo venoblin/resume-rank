@@ -10,10 +10,12 @@ class ResumeChecker(Container):
     super().__init__(type='vertical')
     self.stack = stack
 
+    # resumes = Resumes(resumes=[], is_checking=True)
+
     button = Button(text='Back')
     button.clicked.connect(self._back_handler)
 
-    self.layout.addWidget(Resumes(is_checking=True))
+    # self.layout.addWidget(resumes)
     self.layout.addWidget(button)
 
   def _back_handler(self):

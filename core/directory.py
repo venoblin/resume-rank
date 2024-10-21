@@ -15,6 +15,7 @@ class Directory:
           'file_path': file_path,
           'file_name': file_name
         })
+    print('hi')
 
   def get_files(self):
     return self.files

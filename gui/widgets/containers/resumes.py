@@ -15,7 +15,8 @@ class Resumes(Container):
     super().__init__()
     header = HeaderLabel(text='Resumes')
     self.is_checking = is_checking
-    if len(resumes) == 0:
+
+    if len(resumes) <= 0:
       self.resumes = Directory('files/resumes').get_files()
     else:
       self.resumes = resumes
@@ -27,10 +28,10 @@ class Resumes(Container):
     self.layout.addWidget(self.resume_container)
     if not self.is_checking:
       open_dialog_btn = Button(text='Upload Resume')
-      open_dialog_btn.clicked.connect(self.open_dialog)
+      open_dialog_btn.clicked.connect(self._open_dialog)
       self.layout.addWidget(open_dialog_btn)
 
-  def open_dialog(self):
+  def _open_dialog(self):
     file = QFileDialog.getOpenFileName(self, 'Upload Resume', '', 'Resume Files (*.pdf)')
 
     if file[0]:
@@ -38,14 +39,16 @@ class Resumes(Container):
       self._refresh_resumes()
 
   def _refresh_resumes(self):
-    self.resume_container.clear_layout()
+    self.resumes = Directory('files/resumes').get_files()
+    self.resume_container.clear_layout()    
     self._create_resume_widgets()
   
   def _delete_resume(self, resume):
     run_command(f'rm files/${resume['file_path']}')
     self._refresh_resumes()
   
-  def _create_resume_widgets(self):
+  def _create_resume_widgets(self):    
+
     if self.resumes:
       for r in self.resumes:
         resume = Container(type='horizontal')
