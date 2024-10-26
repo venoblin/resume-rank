@@ -5,4 +5,4 @@ class Router(QStackedLayout):
     super().__init__()
     
   def update(self, idx):
-    pass
+    self.currentIndex(idx)
