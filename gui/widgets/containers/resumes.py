@@ -26,6 +26,7 @@ class Resumes(Container):
 
     self.layout.addWidget(header)
     self.layout.addWidget(self.resume_container)
+
     if not self.is_checking:
       open_dialog_btn = Button(text='Upload Resume')
       open_dialog_btn.clicked.connect(self._open_dialog)
@@ -54,7 +55,11 @@ class Resumes(Container):
         label = Label(text=r['file_name'])
 
         resume.layout.addWidget(label)
-        if not self.is_checking:
+        if self.is_checking:
+          score = str(r.get('score', 0))
+          score_label = Label(text=score)
+          resume.layout.addWidget(score_label)
+        else:
           delete_btn = Button(text='Delete')
           delete_btn.clicked.connect(lambda: self._delete_resume(r))
           resume.layout.addWidget(delete_btn)
