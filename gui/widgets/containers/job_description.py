@@ -27,14 +27,13 @@ class JobDescription(Container):
     all_resumes = Directory('files/resumes').get_files()
 
     current_score = 0
-    all_resumes.pop()
-    resumes = all_resumes
-    # for r in resumes:
-    #   score = File(r['file_path']).compare_keywords(content)
+    resumes = []
+    for r in resumes:
+      score = File(r['file_path']).compare_keywords(content)
 
-    #   resumes.append(r)
+      resumes.append(r)
     
     self.stack.setCurrentIndex(1)
-    current_widget = self.stack.currentWidget()
-    current_widget.update_resumes(resumes)
+    resumes_checker = self.stack.currentWidget()
+    resumes_checker.update_resumes(resumes)
 
