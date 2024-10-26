@@ -48,7 +48,6 @@ class Resumes(Container):
     self._refresh_resumes()
   
   def _create_resume_widgets(self):    
-
     if self.resumes:
       for r in self.resumes:
         resume = Container(type='horizontal')
@@ -63,5 +62,10 @@ class Resumes(Container):
         self.resume_container.layout.addWidget(resume)
     else:
       self.resume_container.layout.addWidget(Label('No resumes!'))
+
+  def update_resumes(self, new_resumes):
+    self.resumes = new_resumes
+    self.resume_container.clear_layout()    
+    self._create_resume_widgets()
 
 

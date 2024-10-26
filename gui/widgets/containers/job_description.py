@@ -22,20 +22,19 @@ class JobDescription(Container):
     self.layout.addWidget(self.textarea)
     self.layout.addWidget(find_btn)
 
-  def _find_resume_handler(self):
-    self.stack.setCurrentIndex(1)
-    
+  def _find_resume_handler(self): 
     content = self.textarea.toPlainText()
-    resumes = Directory('files/resumes').get_files()
+    all_resumes = Directory('files/resumes').get_files()
 
     current_score = 0
-    best_resume = {}
-    for r in resumes:
-      score = File(r['file_path']).compare_keywords(content)
+    all_resumes.pop()
+    resumes = all_resumes
+    # for r in resumes:
+    #   score = File(r['file_path']).compare_keywords(content)
 
-      if score >= current_score:
-        best_resume = r
-        current_score = score
+    #   resumes.append(r)
     
-    print(best_resume)
+    self.stack.setCurrentIndex(1)
+    self.stack.currentWidget().resumes = resumes
+
 
