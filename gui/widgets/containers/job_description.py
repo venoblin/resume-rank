@@ -32,7 +32,7 @@ class JobDescription(Container):
       new_resume = {**r, 'score': score}
 
       if len(resumes) > 0 and score >= resumes[idx-1]['score']:
-        resumes.insert(new_resume)
+        resumes.insert(0, new_resume)
       else:
         resumes.append(new_resume)
     
