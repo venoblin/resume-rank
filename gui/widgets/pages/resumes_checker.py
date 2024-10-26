@@ -2,15 +2,19 @@ from PySide6.QtWidgets import QStackedLayout
 from gui.widgets.container import Container
 from gui.widgets.containers.resumes import Resumes
 from gui.widgets.button import Button
+from gui.widgets.file_viewer import FileViewer
 
 class ResumeChecker(Container):
   stack: QStackedLayout
   resumes_container: Resumes
+  file_viewer: FileViewer
+
   
   def __init__(self, stack):
     super().__init__(type='vertical')
     self.stack = stack
 
+    self.file_viewer = FileViewer()
     self.resumes_container = Resumes(is_checking=True)
 
     button = Button(text='Back')
