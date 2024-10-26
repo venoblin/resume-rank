@@ -5,19 +5,22 @@ from gui.widgets.button import Button
 
 class ResumeChecker(Container):
   stack: QStackedLayout
-  resumes = []
+  resumes_container: Resumes
   
   def __init__(self, stack):
     super().__init__(type='vertical')
     self.stack = stack
 
-    resumes_container = Resumes(resumes=self.resumes, is_checking=True)
+    self.resumes_container = Resumes(is_checking=True)
 
     button = Button(text='Back')
     button.clicked.connect(self._back_handler)
 
-    self.layout.addWidget(resumes_container)
+    self.layout.addWidget(self.resumes_container)
     self.layout.addWidget(button)
 
   def _back_handler(self):
     self.stack.setCurrentIndex(0)
+
+  def update_resumes(self, resumes):
+    self.resumes_container.update_resumes(resumes)

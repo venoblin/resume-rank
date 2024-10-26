@@ -35,6 +35,6 @@ class JobDescription(Container):
     #   resumes.append(r)
     
     self.stack.setCurrentIndex(1)
-    self.stack.currentWidget().resumes = resumes
-
+    current_widget = self.stack.currentWidget()
+    current_widget.update_resumes(resumes)
 
