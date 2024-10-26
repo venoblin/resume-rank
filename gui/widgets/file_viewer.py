@@ -9,11 +9,11 @@ class FileViewer(QWidget):
     def __init__(self, file_path = ''):
         super().__init__()
 
-        self.webview = QWebEngineView()
-        self.webview.setUrl(QtCore.QUrl.fromLocalFile(file_path))
+        self.web_view = QWebEngineView()
+        self.web_view.setUrl(QtCore.QUrl(file_path))
 
         viewer = Container()
-        viewer.layout.addWidget(self.webview)
+        viewer.layout.addWidget(self.web_view)
 
         self.setLayout(viewer.layout)
     
