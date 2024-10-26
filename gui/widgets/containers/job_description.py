@@ -26,12 +26,15 @@ class JobDescription(Container):
     content = self.textarea.toPlainText()
     all_resumes = Directory('files/resumes').get_files()
 
-    current_score = 0
     resumes = []
-    for r in resumes:
+    for idx, r in enumerate(all_resumes):
       score = File(r['file_path']).compare_keywords(content)
+      new_resume = {**r, 'score': score}
 
-      resumes.append(r)
+      if len(resumes) > 0 and score >= resumes[idx-1]['score']:
+        resumes.insert(new_resume)
+      else:
+        resumes.append(new_resume)
     
     self.stack.setCurrentIndex(1)
     resumes_checker = self.stack.currentWidget()
