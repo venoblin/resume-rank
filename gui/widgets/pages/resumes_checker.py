@@ -10,7 +10,7 @@ class ResumeChecker(Container):
   file_viewer: FileViewer
   
   def __init__(self, stack):
-    super().__init__(type='vertical')
+    super().__init__(type='horizontal')
     self.stack = stack
 
     self.file_viewer = FileViewer()
