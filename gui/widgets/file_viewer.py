@@ -10,7 +10,7 @@ class FileViewer(QWidget):
         super().__init__()
 
         self.web_view = QWebEngineView()
-        self.web_view.setUrl(QtCore.QUrl(file_path))
+        self.web_view.load(QtCore.QUrl.fromLocalFile(file_path))
 
         viewer = Container()
         viewer.layout.addWidget(self.web_view)
@@ -19,3 +19,4 @@ class FileViewer(QWidget):
     
     def update_path(self, new_path):
         self.web_view.setUrl(QtCore.QUrl.fromLocalFile(new_path))
+        print(self.web_view.url())
