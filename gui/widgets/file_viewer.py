@@ -18,5 +18,4 @@ class FileViewer(QWidget):
         self.setLayout(viewer.layout)
     
     def update_path(self, new_path):
-        self.web_view.setUrl(QtCore.QUrl.fromLocalFile(f'home/jvhmx/dev/tools/resume-manager/{new_path}'))
-        print(self.web_view.url())
+        pass
