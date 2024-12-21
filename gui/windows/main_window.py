@@ -7,7 +7,7 @@ class MainWindow(QWidget):
   
   def __init__(self):
     super(MainWindow, self).__init__()
-    self.setWindowTitle('Resume Manager')
+    self.setWindowTitle('Resume Rank')
     self.stack = QStackedLayout()
 
     self.stack.addWidget(Finder(stack=self.stack))
