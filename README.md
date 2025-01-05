@@ -27,7 +27,6 @@ Resume intelligently analyzes resumes and compares them against specific job des
 
 This project was built with the following technologies:
 - ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff)
-- ![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnubash&logoColor=fff)
 
 ## Getting Started
 
