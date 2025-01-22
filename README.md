@@ -61,7 +61,7 @@ This project requires additional files to be downloaded for keyword recognizion.
   source venv/bin/activate
   ```
 
-1. **Install dependencies** 
+4. **Install dependencies** 
   
   ```sh
   pip install -r requirements.txt
