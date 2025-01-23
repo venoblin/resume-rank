@@ -31,34 +31,34 @@ This project was built with the following technologies:
 This project requires additional files to be downloaded for keyword recognizion.
 
 - Run `setup.py`
-```sh
-python3 setup.py
-```
+    ```sh
+    python3 setup.py
+    ```
 
 ### Installation
 1. **Clone the repository** 
-```sh
-git clone git@github.com:venoblin/resume-rank.git
-```
+    ```sh
+    git clone git@github.com:venoblin/resume-rank.git
+    ```
 
 2. **Create viurtual enviroment**
-```sh
-cd resume-rank
-python3 -m venv venv
-```
+    ```sh
+    cd resume-rank
+    python3 -m venv venv
+    ```
 
 3. **Activate virtual enviroment** 
-```sh
-source venv/bin/activate
-```
+    ```sh
+    source venv/bin/activate
+    ```
 
 4. **Install dependencies** 
-```sh
-pip install -r requirements.txt
-```
+    ```sh
+    pip install -r requirements.txt
+    ```
 
 5. **Run application** 
-```sh
-python3 app.py
-```
+    ```sh
+    python3 app.py
+    ```
 
