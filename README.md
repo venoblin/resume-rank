@@ -12,64 +12,53 @@ Automated resume screening for efficient hiring!
 </div>
 
 Table of Contents
-
-- [About The Project](#about-the-project)
+- [About The Projects](#about-the-projects)
   - [Built With](#built-with)
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
 
-## About The Project
-
+## About The Projects
 Resume intelligently analyzes resumes and compares them against specific job descriptions, identifying the best resume based on job description keywords. This saves users valuable time and resources.
 
 ### Built With
-
 This project was built with the following technologies:
+
 - <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=fff" alt="Python" />
 
 ## Getting Started
-
 ### Prerequisites
-
 This project requires additional files to be downloaded for keyword recognizion.
 
 - Run `setup.py`
-
-  ```sh
-  python3 setup.py
-  ```
+```sh
+python3 setup.py
+```
 
 ### Installation
-
 1. **Clone the repository** 
-
-  ```sh
-  git clone git@github.com:venoblin/resume-rank.git
-  ```
+```sh
+git clone git@github.com:venoblin/resume-rank.git
+```
 
 2. **Create viurtual enviroment**
-
-  ```sh
-  cd resume-rank
-  python3 -m venv venv
-  ```
+```sh
+cd resume-rank
+python3 -m venv venv
+```
 
 3. **Activate virtual enviroment** 
-
-  ```sh
-  source venv/bin/activate
-  ```
+```sh
+source venv/bin/activate
+```
 
 4. **Install dependencies** 
-  
-  ```sh
-  pip install -r requirements.txt
-  ```
+```sh
+pip install -r requirements.txt
+```
 
 5. **Run application** 
-  
-  ```sh
-  python3 app.py
-  ```
+```sh
+python3 app.py
+```
 
