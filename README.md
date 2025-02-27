@@ -19,6 +19,8 @@ Table of Contents
   - [Installation](#installation)
 
 ## About The Projects
+![Screenshot](.project-images/screenshot01.png)
+
 Resume intelligently analyzes resumes and compares them against specific job descriptions, identifying the best resume based on job description keywords. This saves users valuable time and resources.
 
 ### Built With
