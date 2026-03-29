@@ -1,52 +1,76 @@
 import os
+import spacy
 from PyPDF2 import PdfReader
-from textblob import TextBlob
+
 
 class File:
-  src: str
-  content: str
-  file_extension: str
-  
-  def __init__(self, src: str = '') -> None:
-    self.src = src
-    self.file_extension = os.path.splitext(self.src)[1].lower()
+    nlp = spacy.load("en_core_web_trf")
 
-    try:
-      if self.file_extension == '.txt':
-        with open(self.src, 'r') as file:
-          output = file.read()
-          self.content = output
-      elif self.file_extension == '.pdf':
-        reader = PdfReader(self.src)
-        output = ''
+    def __init__(self, src: str = "") -> None:
+        self.src = src
+        self.content = ""
+        self.file_extension = os.path.splitext(self.src)[1].lower()
 
-        for i in range(len(reader.pages)):
-          page = reader.pages[i]
+        if not self.src:
+            return
 
-          if i == 0:
-            output += page.extract_text()
-          else:
-            output += f' {page.extract_text()}'
+        try:
+            if self.file_extension == ".txt":
+                with open(self.src, "r", encoding="utf-8") as file:
+                    self.content = file.read()
 
-        self.content = output
+            elif self.file_extension == ".pdf":
+                reader = PdfReader(self.src)
+                pages = []
 
-    except FileNotFoundError:
-      print('Error: File not found!')
-      return None
+                for page in reader.pages:
+                    text = page.extract_text()
+                    if text:
+                        pages.append(text)
 
-  def read_file(self):  
-    return self.content
-  
-  def extract_keywords(self):    
-    blob = TextBlob(self.content)
-    return blob.noun_phrases
-  
-  def compare_keywords(self, job_description: str):
-    job_keywords = TextBlob(job_description).noun_phrases
-    resume_keywords = self.extract_keywords()
+                self.content = " ".join(pages)
 
-    intersection = set(job_keywords).intersection(set(resume_keywords))
-    union = set(job_keywords).union(set(resume_keywords))
-    score = len(intersection) / len(union)
-    
-    return score
+            else:
+                raise ValueError(f"Unsupported file type: {self.file_extension}")
+
+        except FileNotFoundError:
+            print("Error: File not found!")
+        except Exception as e:
+            print(f"Error reading file: {e}")
+
+    def read_file(self) -> str:
+        return self.content
+
+    def extract_keywords(self) -> list[str]:
+        if not self.content.strip():
+            return []
+
+        doc = self.nlp(self.content)
+
+        keywords = [
+            chunk.text.strip().lower()
+            for chunk in doc.noun_chunks
+            if chunk.text.strip() and not chunk.root.is_stop
+        ]
+
+        return list(set(keywords))
+
+    def compare_keywords(self, job_description: str) -> float:
+        if not job_description.strip():
+            return 0.0
+
+        job_doc = self.nlp(job_description)
+        job_keywords = {
+            chunk.text.strip().lower()
+            for chunk in job_doc.noun_chunks
+            if chunk.text.strip() and not chunk.root.is_stop
+        }
+
+        resume_keywords = set(self.extract_keywords())
+
+        print(resume_keywords)
+
+        union = job_keywords.union(resume_keywords)
+        intersection = job_keywords.intersection(resume_keywords)
+
+        return len(intersection) / len(union) if union else 0.0
